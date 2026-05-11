@@ -13,12 +13,14 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] private bool disabledControl =  false;
     [SerializeField] private float disableTime = 1;
     private float lastCollisionTime;
+    public static Transform player;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         move = InputSystem.actions.FindAction("Player/Move"); 
         rb = GetComponent<Rigidbody>();
+        player = transform;
     }
 
     private void OnEnable()

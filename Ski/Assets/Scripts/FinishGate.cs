@@ -8,7 +8,7 @@ public class FinishGate : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            FinishRace();
+            FinishRace.Invoke();
             //You win
         }
     }
