@@ -14,12 +14,14 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] private float disableTime = 1;
     private float lastCollisionTime;
     public static Transform player;
+    private Animator animator;  
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         move = InputSystem.actions.FindAction("Player/Move"); 
         rb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
         player = transform;
     }
 
@@ -66,5 +68,9 @@ public class PlayerControl : MonoBehaviour
             rb.AddForce(transform.forward * speed * speedMult * Time.fixedDeltaTime);
             Debug.Log(" turnAngle: " + turnAngle );
         }
+
+        //Debug.Log("speed: " + rb.linearVelocity.magnitude);
+        animator.SetFloat("playerSpeed", rb.linearVelocity.magnitude);
+        animator.SetBool("grounded", grounded);
     }
 }

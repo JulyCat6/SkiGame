@@ -467,11 +467,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4990149445621478246, guid: 6d0514ad15c37c042abe64036ed58e03, type: 3}
   m_PrefabInstance: {fileID: 1562026663}
   m_PrefabAsset: {fileID: 0}
---- !u!225 &117546464 stripped
-CanvasGroup:
-  m_CorrespondingSourceObject: {fileID: 5052548365744504883, guid: 49ee210ac0510844d8da858708681a45, type: 3}
-  m_PrefabInstance: {fileID: 1589834937}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &171765694
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2765,6 +2760,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   penaltyTimeVal: 3
+  raceTimeText: {fileID: 0}
+  bestTimeText: {fileID: 0}
+  bestTimeKey: LVL1BestTime
 --- !u!4 &1080238262
 Transform:
   m_ObjectHideFlags: 0
@@ -4550,21 +4548,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6564981167228359830, guid: 49ee210ac0510844d8da858708681a45, type: 3}
   m_PrefabInstance: {fileID: 1589834937}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1406720855
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1406720851}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8c5a4f3037db73419c77bc799f29505, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UIManager
-  screenOverlay: {fileID: 117546464}
-  fadeSpeed: 1
-  raceOverPanel: {fileID: 905569623}
 --- !u!1001 &1454282931
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4767,6 +4750,14 @@ PrefabInstance:
       propertyPath: raceOverPanel
       value: 
       objectReference: {fileID: 905569623}
+    - target: {fileID: 6564981166389357953, guid: 49ee210ac0510844d8da858708681a45, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1406720851}
+    - target: {fileID: 6564981166553636942, guid: 49ee210ac0510844d8da858708681a45, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6564981166728425805, guid: 49ee210ac0510844d8da858708681a45, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -4879,15 +4870,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6564981168225664803, guid: 49ee210ac0510844d8da858708681a45, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Restart
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6564981168130238409, guid: 49ee210ac0510844d8da858708681a45, type: 3}
     - {fileID: 1690740110528245864, guid: 49ee210ac0510844d8da858708681a45, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6564981167228359830, guid: 49ee210ac0510844d8da858708681a45, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1406720855}
     - targetCorrespondingSourceObject: {fileID: 6564981168130238408, guid: 49ee210ac0510844d8da858708681a45, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1992518767}
@@ -5204,11 +5196,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6486787329974128137, guid: 079d8e1325f92924690275cc28f21b1b, type: 3}
       propertyPath: speed
-      value: 50
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 6486787329974128137, guid: 079d8e1325f92924690275cc28f21b1b, type: 3}
       propertyPath: rotSpeed
-      value: 40
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 6486787329974128137, guid: 079d8e1325f92924690275cc28f21b1b, type: 3}
       propertyPath: disableTime
