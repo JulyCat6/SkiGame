@@ -30,6 +30,11 @@ public class PlayerControl : MonoBehaviour
         Obstacle.OnPlayerHit += TakeDamage;
     }
     
+    private void OnDisable()
+    {
+        Obstacle.OnPlayerHit -= TakeDamage;
+    }
+    
     //Dzird obstacle skriptu
     void TakeDamage()
     {

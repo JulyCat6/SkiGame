@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using TMPro;
+using System.Collections.Generic;
 
 public class UIManager : MonoBehaviour
 {
@@ -8,6 +10,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private float fadeSpeed = 2;
     [SerializeField] private GameObject raceOverPanel;
     [SerializeField] private int nextLevelIndex = 1;
+    [SerializeField] private TMP_Text LeaderTimeText;
+    [SerializeField] private TMP_Text GameTimeText;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -30,6 +34,8 @@ public class UIManager : MonoBehaviour
     private void OnRaceFinished()
     {
         raceOverPanel.SetActive(true);
+        UpdateLeaderTimeUI();
+        UpdateGameTimeUI();
     }
 
     private IEnumerator FadeOutOverlay()
@@ -72,8 +78,8 @@ public class UIManager : MonoBehaviour
         yield return StartCoroutine(FadeInOverlay());
         SceneManager.LoadScene(nextLevelIndex);
     }
-
-    private void Quit()
+    
+    public void Quit()
     {
         StartCoroutine(QuitCoroutine());
     }
@@ -82,6 +88,32 @@ public class UIManager : MonoBehaviour
     {
         yield return StartCoroutine(FadeInOverlay());
         Application.Quit();
+    }
+
+    private void UpdateLeaderTimeUI()
+    {
+        if (GameData.Instance == null) return;
+
+        List<float> times = GameData.Instance.bestTimes;
+
+        string text = "TOP PLAYERS\n\n";
+
+        int count = Mathf.Min(3, times.Count);
+
+        for (int i = 0; i < count; i++)
+        {
+            float t = times[i];
+            text += $"{i + 1}. Player - {t:F2}s\n";
+        }
+
+        LeaderTimeText.text = text;
+    }
+
+    private void UpdateGameTimeUI()
+    {
+        if (GameData.Instance == null) return;
+        float time = GameData.Instance.GameTime;
+        GameTimeText.text = "Time Race : " + time.ToString("F2") + "s";
     }
 
     // Update is called once per frame

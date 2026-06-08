@@ -17,6 +17,8 @@ public class AudioManager : MonoBehaviour
     
     private void PlayCollisionSound()
     {
+        if (audioSource == null || collisionSound == null)
+            return;
         audioSource.PlayOneShot(collisionSound);
     }
     

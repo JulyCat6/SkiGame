@@ -3996,6 +3996,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a0e17b874117484f83a3f1235989007, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerControl
+  rotSpeed: 25
+  speed: 10
+  grounded: 1
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 0
+  pushbackForce: {x: 0, y: 0, z: 0}
+  disabledControl: 0
+  disableTime: 1
 --- !u!1 &4335157639809742679
 GameObject:
   m_ObjectHideFlags: 0

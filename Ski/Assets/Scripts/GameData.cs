@@ -5,6 +5,7 @@ public class GameData : MonoBehaviour
 {
     private static GameData instance; // var tikt no jebkura scripta 
     public List<float> bestTimes = new List<float>(); // List ladējas lenāk, var izmentot "public float[] bestTimeArray;"
+    public float GameTime;
     public static GameData Instance
     {
         get { return instance; }
@@ -38,7 +39,7 @@ public class GameData : MonoBehaviour
     {
         for (int i = 0; i < 5; i++)
         {
-            if(bestTimes.Count >= i)
+            if(bestTimes.Count > i)
                 PlayerPrefs.SetFloat(leaderboardKey + i,bestTimes[i]);
         }
     }
@@ -49,4 +50,15 @@ public class GameData : MonoBehaviour
         bestTimes.Sort();
         SaveLeaderboard();
     }
+    
+    //void LoadLeaderTimeClean()
+    //{
+        //bestTimes.Clear();
+
+       // for (int i = 0; i < 5; i++)
+        //{
+            //float time = PlayerPrefs.GetFloat(leaderboardKey + i, 999.99f);
+           // bestTimes.Add(time);
+        //}
+   // }
 }
